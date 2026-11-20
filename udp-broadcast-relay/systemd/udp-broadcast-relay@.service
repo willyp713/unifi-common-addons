@@ -1,0 +1,19 @@
+[Unit]
+Description=UDP broadcast relay %i
+After=network-online.target
+StartLimitIntervalSec=0
+# Without /data the condition below skips the unit, and Restart= does not
+# apply to a skipped unit.
+RequiresMountsFor=/data
+ConditionPathExists=/data/unifi-common-addons/udp-broadcast-relay/instances/%i/active
+
+[Service]
+# precheck checks the config, the interfaces, the target, the port, and the
+# binary. A failure holds the relay back until the next try.
+ExecStartPre=/data/unifi-common-addons/udp-broadcast-relay/udp-broadcast-relay precheck %i
+ExecStart=/data/unifi-common-addons/udp-broadcast-relay/udp-broadcast-relay run %i
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,9 @@
+# HDHomeRun discovery. Copy to relay.conf and edit. Find your interface
+# names and addresses with: ip -br addr
+ID=1
+PORT=65001
+# The client interfaces and the tuner's interface.
+DEVS="br0 br30"
+# The broadcast address of the tuner's network. UniFi OS sets none on its
+# bridges, so the relay needs it.
+TARGET=192.168.30.255

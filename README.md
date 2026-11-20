@@ -77,6 +77,10 @@ Runs [SoundCork](https://github.com/deborahgu/soundcork) on a UniFi OS gateway f
 
 Miscellaneous scripts to help with Tailscale and UniFi integration from [tailscale-unifi](https://github.com/SierraSoftworks/tailscale-unifi)
 
+### [udp-broadcast-relay](udp-broadcast-relay)
+
+Copies UDP discovery broadcasts on one port from client VLANs to a device's VLAN, so that apps such as HDHomeRun find devices on another VLAN.
+
 ## Missing something?
 
 > [!TIP]
